@@ -5,4 +5,4 @@ dependencies:
 - git
 files:
 - uaa/**/*
-- tools/vcap_registrar/**/*
+- tools/router_registrar/**/*

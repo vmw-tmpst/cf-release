@@ -5,5 +5,5 @@ dependencies:
 files:
 - saml_login/**/*
 - uaa/**/*
-- tools/vcap_registrar/**/*
-
+- tools/router_registrar/**/*
+- pkg_utils/*
