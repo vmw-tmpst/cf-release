@@ -4,8 +4,8 @@ check process saml_login
   stop program "/var/vcap/jobs/saml_login/bin/saml_login_ctl stop"
   group vcap
 
-check process vcap_registrar
-  with pidfile /var/vcap/sys/run/vcap_registrar/vcap_registrar.pid
-  start program "/var/vcap/jobs/saml_login/bin/vcap_registrar_ctl start"
-  stop program "/var/vcap/jobs/saml_login/bin/vcap_registrar_ctl stop"
+check process router_registrar
+  with pidfile /var/vcap/sys/run/router_registrar/router_registrar.pid
+  start program "/var/vcap/jobs/saml_login/bin/router_registrar_ctl start"
+  stop program "/var/vcap/jobs/saml_login/bin/router_registrar_ctl stop"
   group vcap

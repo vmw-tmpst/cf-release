@@ -4,7 +4,7 @@ export PATH=/var/vcap/packages/ruby/bin:$PATH
 export PATH=/var/vcap/packages/git/bin:$PATH
 RUN_DIR=/var/vcap/sys/run/uaa
 LOG_DIR=/var/vcap/sys/log/uaa
-PIDFILE=$RUN_DIR/vcap_registrar.pid
+PIDFILE=$RUN_DIR/router_registrar.pid
 
 source /var/vcap/packages/common/utils.sh
 
@@ -18,15 +18,15 @@ case $1 in
 
     echo $$ > $PIDFILE
 
-    export CONFIG_FILE=/var/vcap/jobs/uaa/config/vcap_registrar/config.yml
+    export CONFIG_FILE=/var/vcap/jobs/uaa/config/router_registrar/config.yml
 
-    cd /var/vcap/packages/uaa/vcap_registrar
+    cd /var/vcap/packages/uaa/router_registrar
     exec /var/vcap/packages/ruby/bin/ruby \
-         /var/vcap/packages/uaa/vcap_registrar/bin/vcap_registrar \
+         /var/vcap/packages/uaa/router_registrar/bin/router_registrar \
          --register_with_router \
          --register_varz_credentials \
-         >>$LOG_DIR/vcap_registrar.stdout.log \
-         2>>$LOG_DIR/vcap_registrar.stderr.log
+         >>$LOG_DIR/router_registrar.stdout.log \
+         2>>$LOG_DIR/router_registrar.stderr.log
 
     ;;
 
@@ -36,7 +36,7 @@ case $1 in
     ;;
 
   *)
-    echo "Usage: vcap_registrar_ctl {start|stop}" ;;
+    echo "Usage: router_registrar_ctl {start|stop}" ;;
 
 esac
 exit 0
