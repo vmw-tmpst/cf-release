@@ -1,16 +1,16 @@
 ---
 logging:
   file: /var/vcap/sys/log/router_registrar/router_registrar.log
-  <% if properties.syslog_aggregator %>
+  <% if_p("syslog_aggregator") do |_| %>
   syslog: vcap.saml_login_router_registrar
   <% end %>
   level: info
-mbus: nats://<%= properties.nats.user %>:<%= properties.nats.password %>@<%= properties.nats.address %>:<%= properties.nats.port %>
+mbus: <%= "nats://#{p("nats.user")}:#{p("nats.password")}@#{p("nats.address")}:#{p("nats.port")}" %>
 uri:
   - login.<%= properties.domain %>
 host: <%= spec.networks.send(properties.networks.apps).ip %>
 index: <%= spec.index %>
-port: <%= (properties.saml_login && properties.saml_login.port) ? properties.saml_login.port : 8080 %>
+port: <%= p("saml_login.port") %>
 tags:
   component: saml_login
 varz:
