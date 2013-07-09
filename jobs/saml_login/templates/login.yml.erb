@@ -23,7 +23,7 @@ links: <% links.marshal_dump.each do |id,url| %>
 <% end %>
 
 # The secret that this login server will use to authenticate to the uaa
-LOGIN_SECRET: <%= if_p("uaa.login.client_secret") { |x| x }.else_if_p("uaa.clients.login.secret") { |x| x } %>
+LOGIN_SECRET: <%= if_p("uaa.login.client_secret") { |x| x }.else { p("uaa.clients.login.secret") } %>
 <% if_p("uaa.require_https") do |req| %>
 require_https: <%= req %>
 <% end %>

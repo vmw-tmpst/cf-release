@@ -27,6 +27,8 @@ properties:
     description: "The domain that the saml login server will listen at."
   uaa.clients:
     description: "List of UAA clients that contains the client for the login server."
+  uaa.clients.login:
+    description: "Login client configuration."
   uaa.clients.login.secret:
     description: "Secret of the login client."
   uaa.login.client_secret:
