@@ -40,9 +40,8 @@ login:
   entityID: <%= if_p("saml_login.entityid") { |x| x }.else { "login.#{properties.domain}" } %>
 
   # The location and credentials of the certificate for this SP
-  keystoreLocation: file:///var/vcap/jobs/saml_login/config/security/<%= p("saml_login.keystore_name") %>
-  keystoreKey: <%= p("saml_login.keystore_key") %>
-  keystorePassword: <%= p("saml_login.keystore_password") %>
+  serviceProviderKey: <%= p("saml_login.serviceProviderKey") %>
+  serviceProviderCertificate: <%= p("saml_login.serviceProviderCertificate") %>
 
   # The entity alias of the IDP
   idpEntityAlias: <%= p("saml_login.idp_entity_alias") %>
